@@ -4,9 +4,13 @@
   <head>
     <link rel="stylesheet" href="styles.css">
     <title>Lucas' site</title>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   </head>
   <body>
-    <header>
+    <header class="text-header">
       Projects
     </header>
     <p>
@@ -22,5 +26,58 @@
       then slowly build one myself, leaning on AI.
       <br>Next up: Javascript.
     </p>
+    <div class="js-container"></div>
+
+    <script type="text/babel">
+      function JournalEntries( {journalEntries} ) {
+        return (
+          <div>
+            {journalEntries.map((journalEntry) => {
+              return (
+                <JournalEntry title={journalEntry.title} date={journalEntry.date} entry={journalEntry.entry}/>
+              );
+            })}
+          </div>
+        );
+      }
+
+      function JournalEntry({ title, date, entry }) {
+        const [ isOpen, setIsOpen ] = React.useState(false);
+
+        return (
+          <div>
+            <div className="journal-entry-header" onClick={() => setIsOpen(!isOpen)}>
+              <h4>{title}</h4>
+              <span>{isOpen ? "Hide" : "Read"}</span>
+            </div>
+            {isOpen && (
+              <div className="journal-entry-content">
+                <p>{date}</p>
+                <p className="text-journal-paragraph">{entry}</p>
+              </div>
+            )}
+          </div>
+        );
+      }
+
+      function App() {
+        const [journalEntries, setJournalEntries] = React.useState([{
+          title: 'First Log',
+          date: '2026/07/24',
+          entry: 'This is the start of me building my website in an effort to prepare for uni! I\'ve went through a 6h HTML and CSS tutorial so now I understand some of how  to convert my website designs into an actual page, even if I still need to rely heavily on searching things up to remind myself of the syntax and differences between all the different displays and positions and of course syntax needed. \n\nI think my main goal for now is to rapidly learn the basics of everything needed to code a website, then slowly build one myself.\n\nNext up: Javascript.'
+        }, {
+          title: '',
+          date: '',
+          entry: ''
+        }])
+
+        return (
+          <JournalEntries journalEntries={journalEntries}/>
+        );
+      }
+
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<App/>);
+    </script>
   </body>
 </html>

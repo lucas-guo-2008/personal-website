@@ -1,3 +1,17 @@
-.indented-paragraph {
+body {
+  font-family: Cambria, Georgia;
+}
+
+.text-header {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.text-journal-paragraph {
+  white-space: pre-line; /* reads \n as newline */
   margin-left: 45px;
+}
+
+.journal-entry-header {
+  cursor: pointer;
 }
