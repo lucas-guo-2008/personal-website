@@ -10,7 +10,7 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   </head>
   <body>
-    <header class="text-header">
+    <header class="page-header">
       Projects
     </header>
     <div class="js-container"></div>
@@ -34,8 +34,8 @@
         return (
           <div>
             <div className="journal-entry-header" onClick={() => setIsOpen(!isOpen)}>
-              <h4>{title}</h4>
-              <span>{isOpen ? "Hide" : "Read"}</span>
+              <p className="journal-entry-title">{title}</p>
+              <button className="toggle-journal-entry-button">{isOpen ? "▲ Hide" : "▼ Read"}</button>
             </div>
             {isOpen && (
               <div className="journal-entry-content">
