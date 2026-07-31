@@ -1,10 +1,12 @@
 body {
   font-family: Cambria, Georgia;
+  margin: 20px;
 }
 
-.text-header {
+.page-header {
   font-weight: bold;
   font-size: 20px;
+  margin-bottom: 20px;
 }
 
 .text-journal-paragraph {
@@ -14,4 +16,22 @@ body {
 
 .journal-entry-header {
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  background-color: rgb(230, 230, 230);
+  margin-bottom: 10px;
+}
+
+.toggle-journal-entry-button {
+  background-color: rgb(230, 230, 230);
+  height: 24px;
+  border: none;
+  font-family: Cambria, Georgia;
+  margin-right: 10px;
+}
+
+.journal-entry-title {
+  flex-grow: 1;
+  font-size: 15px;
+  font-weight: 700;
 }
