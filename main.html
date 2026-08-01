@@ -32,7 +32,7 @@
         const [ isOpen, setIsOpen ] = React.useState(false);
 
         return (
-          <div>
+          <div className="journal-entry-container">
             <div className="journal-entry-header" onClick={() => setIsOpen(!isOpen)}>
               <p className="journal-entry-title">{title}</p>
               <button className="toggle-journal-entry-button">{isOpen ? "▲ Hide" : "▼ Read"}</button>
