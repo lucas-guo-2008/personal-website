@@ -1,0 +1,56 @@
+body {
+  margin: 20px;
+}
+
+p {
+  margin: 0;
+}
+
+.page-header {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.journal-entry-container {
+  border-style: solid;
+  border-color: grey;
+  border-width: 1px;
+  margin-bottom: 10px;
+}
+
+.text-journal-paragraph {
+  white-space: pre-line;
+  /* reads \n as newline */
+  margin-left: 45px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.journal-entry-header {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background-color: rgb(230, 230, 230);
+}
+
+.toggle-journal-entry-button {
+  background-color: rgb(230, 230, 230);
+  height: 24px;
+  border: none;
+  font-family: inherit;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.journal-entry-title {
+  flex-grow: 1;
+  font-size: 15px;
+  font-weight: 700;
+  margin: 10px;
+}
+
+.journal-entry-content {
+  padding: 10px;
+  background-color: rgb(249, 249, 249);
+}
