@@ -1,5 +1,6 @@
 body {
   margin: 20px;
+  background-color: rgb(240, 246, 250);
 }
 
 p {
@@ -14,8 +15,10 @@ p {
 
 .journal-entry-container {
   border-style: solid;
-  border-color: grey;
+  border-color: rgb(203, 213, 225);
   border-width: 1px;
+  border-radius: 8px;
+  overflow: hidden;
   margin-bottom: 10px;
 }
 
@@ -31,11 +34,16 @@ p {
   cursor: pointer;
   display: flex;
   align-items: center;
-  background-color: rgb(230, 230, 230);
+  background-color: rgba(201, 234, 255, 0.7);
+  transition: background-color 0.2s ease;
+}
+
+.journal-entry-header:hover {
+  background-color: rgba(201, 234, 255, 1);
 }
 
 .toggle-journal-entry-button {
-  background-color: rgb(230, 230, 230);
+  background-color: transparent;
   height: 24px;
   border: none;
   font-family: inherit;
@@ -52,5 +60,5 @@ p {
 
 .journal-entry-content {
   padding: 10px;
-  background-color: rgb(249, 249, 249);
+  background-color: rgba(201, 234, 255, 0.3);
 }
