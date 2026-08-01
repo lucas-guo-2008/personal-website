@@ -3,13 +3,17 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  margin-left: 15vw;
+  margin-left: 25vw;
   margin-top: 10vh;
-  width: 70vw;
+  width: 60vw;
 }
 
 h1, h2, h3 {
   font-family: "JetBrains Mono", monospace;
+}
+
+p {
+  line-height: 1.6;
 }
 
 .all-container {
