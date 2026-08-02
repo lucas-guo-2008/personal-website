@@ -4,7 +4,6 @@ body {
   display: flex;
   flex-direction: column;
   margin-left: 25vw;
-  margin-top: 10vh;
   width: 60vw;
 }
 
@@ -16,12 +15,13 @@ p {
   line-height: 1.6;
 }
 
-.all-container {
+.bio-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   max-width: 520px;
+  flex: 1;
 }
 
 .subtitle-text {
@@ -29,5 +29,14 @@ p {
 }
 
 .links-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  max-width: 520px;
+  margin-bottom: 15vh;
+}
 
+.profile-link {
+  font-size: 12px;
+  text-underline-offset: 4px;
 }
