@@ -9,10 +9,12 @@ p {
 
 h2 {
   font-size: 28px;
+  margin: 20px 0px;
 }
 
 h3 {
   font-size: 20px;
+  margin-bottom: 10px;
 }
 
 .page-header {
@@ -23,6 +25,14 @@ h3 {
 
 .project-summary-container {
   margin-bottom: 10vh;
+  border-style: solid;
+  border-radius: 8px;
+  border-width: 1px;
+  padding: 0px 20px 15px 20px;
+}
+
+ul li {
+  margin-bottom: 8px;
 }
 
 .journal-entry-container {
