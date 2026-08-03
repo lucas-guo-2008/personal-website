@@ -10,7 +10,13 @@ p {
 .page-header {
   font-weight: bold;
   font-size: 20px;
+  margin-left: 5vw;
   margin-bottom: 20px;
+}
+
+.js-container {
+  margin-left: 5vw;
+  margin-right: 5vw;
 }
 
 .journal-entry-container {
