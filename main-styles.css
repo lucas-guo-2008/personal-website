@@ -1,6 +1,6 @@
 body {
-  margin: 20px;
   background-color: rgb(240, 246, 250);
+  margin: 10vh 10vw;
 }
 
 p {
@@ -9,14 +9,12 @@ p {
 
 .page-header {
   font-weight: bold;
-  font-size: 20px;
-  margin-left: 5vw;
-  margin-bottom: 20px;
+  font-size: 30px;
+  margin-bottom: 40px;
 }
 
-.js-container {
-  margin-left: 5vw;
-  margin-right: 5vw;
+.project-summary-container {
+  margin-bottom: 40px;
 }
 
 .journal-entry-container {
