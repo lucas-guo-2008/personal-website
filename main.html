@@ -50,7 +50,10 @@
       </ul>
     </div>
 
-    <div class="js-container"></div>
+    <div class="journal-container">
+      <h3 class="journal-container-title">Project Logs</h3>
+      <div class="js-container"></div>
+    </div>
 
     <script type="text/babel">
       function JournalEntries( {journalEntries} ) {
@@ -77,7 +80,7 @@
             {isOpen && (
               <div className="journal-entry-content">
                 <p>{date}</p>
-                <p className="text-journal-paragraph">{entry}</p>
+                <p className="journal-entry-text">{entry}</p>
               </div>
             )}
           </div>
