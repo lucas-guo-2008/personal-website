@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react';
-import '../main-styles.css';
+//import '../main-styles.css';
 
 export interface JournalEntryData {
   title: string;
@@ -23,15 +23,15 @@ function JournalEntry({ title, date, entry }: JournalEntryProps) {
   const [ isOpen, setIsOpen ] = useState<boolean>(false);
 
   return (
-    <div className="journal-entry-container">
-      <div className="journal-entry-header" onClick={() => setIsOpen(!isOpen)}>
-        <p className="journal-entry-title">{title}</p>
-        <button className="toggle-journal-entry-button">{isOpen ? "▲ Hide" : "▼ Read"}</button>
+    <div className="border rounded-lg mx-5 mb-5 border-[rgb(203,213,225)] overflow-hidden">
+      <div className="cursor-pointer flex items-center bg-[rgba(201,234,255,0.7)] hover:bg-[rgb(201,234,255)] transition-colors duration-200 ease-linear" onClick={() => setIsOpen(!isOpen)}>
+        <p className="grow text-lg font-bold mx-5 my-4">{title}</p>
+        <button className="bg-transparent height-7 mr-4 cursor-pointer">{isOpen ? "▲ Hide" : "▼ Read"}</button>
       </div>
       {isOpen && (
-        <div className="journal-entry-content">
+        <div className="py-2.5 px-5 bg-[rgba(201,234,255,0.3)]">
           <p>{date}</p>
-          <p className="journal-entry-text">{entry}</p>
+          <p className="whitespace-pre-line ml-11 my-2.5">{entry}</p>
         </div>
       )}
     </div>
@@ -75,14 +75,14 @@ export default function ProjectSummaryPage() {
   ]);
 
   return (
-    <main>
+    <main className="min-h-screen bg-[rgb(240,246,250)] px-[10vw] py-[10vh]">
       <title>Lucas' site</title>
-      <header className="page-header">
+      <header className="font-bold text-5xl mb-10">
         Website Project
       </header>
 
-      <div className="journal-container">
-        <h3 className="journal-container-title">Project Logs</h3>
+      <div className="mb-[10vh] border rounded-lg px-5 pb-4">
+        <h3 className="font-bold text-xl mb-7 mt-5">Project Logs</h3>
         <JournalEntries journalEntries={journalEntries} />
       </div>
     </main>

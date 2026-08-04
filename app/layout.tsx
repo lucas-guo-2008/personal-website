@@ -29,7 +29,7 @@ export default function RootLayout({
       lang="en"
       className={`${plusJakartaSans.variable} ${jetbrainsMono.variable}`}
     >
-      <body>{children}</body>
+      <body className="font-sans antialiased">{children}</body>
     </html>
   );
 }
