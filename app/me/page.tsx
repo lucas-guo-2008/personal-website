@@ -1,7 +1,8 @@
 import React from 'react';
+import SocialLink from '@/components/SocialLink';
 
 export const metadata = {
-  title: "Lucas\' site"
+  title: "About me"
 }
 
 export default function() {
@@ -14,11 +15,11 @@ export default function() {
         <p className="leading-relaxed">In my free time, I like going to the gym, running, hiking, snowboarding, and hanging out with friends. I also like collecting Pokemon cards, as well as watching anime and YouTube.</p>
       </main>
       <footer className="w-full flex justify-between max-w-xl mb-[15vh]">
-        <a href="https://www.instagram.com/lucas.guo_/" target="_blank" className="text-xs hover:underline underline-offset-4">Instagram</a>
-        <a href="https://www.linkedin.com/in/lucas-guo/" target="_blank" className="text-xs hover:underline underline-offset-4">LinkedIn</a>
-        <a href="https://github.com/lucas-guo-2008" target="_blank" className="text-xs hover:underline underline-offset-4">Github</a>
-        <a href="https://www.strava.com/athletes/145385726" target="_blank" className="text-xs hover:underline underline-offset-4">Strava</a>
-        <a href="mailto:lucas.lu.guo@gmail.com" className="text-xs hover:underline underline-offset-4">lucas.lu.guo [ at ] gmail.com</a>
+        <SocialLink href="https://www.instagram.com/lucas.guo_/">Instagram</SocialLink>
+        <SocialLink href="https://www.linkedin.com/in/lucas-guo/">LinkedIn</SocialLink>
+        <SocialLink href="https://github.com/lucas-guo-2008">Github</SocialLink>
+        <SocialLink href="https://www.strava.com/athletes/145385726">Strava</SocialLink>
+        <SocialLink href="mailto:lucas.lu.guo@gmail.com">lucas.lu.guo [ at ] gmail.com</SocialLink>
       </footer>
     </div>
   );
