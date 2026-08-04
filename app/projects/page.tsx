@@ -2,17 +2,20 @@
 
 import React, { useState } from 'react';
 import './main-styles.css';
+import Link from 'next/link';
 
 export default function ProjectPage() {
 return (
     <main>
       <title>Lucas' site</title>
       <header className="page-header">
-        Projects
-      </header>
+          Projects
+        </header>
 
       <div className="project-summary-container">
-        <h2>Project Summary: Personal Life Dashboard</h2>
+        <h2 className="w-fit">
+          <Link href="/projects/this" className="hover:underline underline-offset-4">Project Summary: Personal Life Dashboard</Link>
+        </h2>
         <h3>Goal</h3>
         <p>
           Build a personal website to display project work and track daily metrics (Gym, Running, Sleep). The secondary goal is to
