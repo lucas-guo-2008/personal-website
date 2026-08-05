@@ -75,16 +75,15 @@ export default function ProjectSummaryPage() {
   ]);
 
   return (
-    <main className="min-h-screen bg-[rgb(240,246,250)] px-[10vw] py-[10vh]">
-      <title>Lucas' site</title>
-      <header className="font-bold text-5xl mb-10">
+    <div className="bg-[rgb(240,246,250)] flex-1 px-[10vw] py-[10vh]">
+      <h1 className="font-bold text-5xl mb-10">
         Website Project
-      </header>
+      </h1>
 
       <div className="mb-[10vh] border rounded-lg px-5 pb-4">
         <h3 className="font-bold text-xl mb-7 mt-5">Project Logs</h3>
         <JournalEntries journalEntries={journalEntries} />
       </div>
-    </main>
+    </div>
   );
 }
