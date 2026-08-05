@@ -86,7 +86,7 @@ export default function ProjectPage() {
 
   return (
     <main className="bg-[rgb(240,246,250)] py-[10vh] px-[10vw]">
-      <header className="font-bold text-5xl mb-10">Projects</header>
+      <header className="font-bold text-5xl">Projects</header>
       <ProjectSummaries projectSummaries={projectSummaries}/>
     </main>
   );
