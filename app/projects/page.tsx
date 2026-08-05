@@ -33,15 +33,15 @@ function ProjectSummary({ title, summary, phases, stack }:ProjectData) {
       <h3>Approach & Roadmap</h3>
       <ul>{phases.map((phase, index) => {
         return (
-          <li>Phase {index+1}: {phase.description}</li>
+          <li key={index}>Phase {index+1}{(phase.comment) ? ` (${phase.comment})`: ''}: {phase.description}</li>
         );
       })}
       </ul>
 
       <h3>Tech Stack & Implementation</h3>
-      <ul>{stack.map((str) => {
+      <ul>{stack.map((str, index) => {
         return (
-          <li>{str}</li>
+          <li key={index}>{str}</li>
         );
       })}
       </ul>
@@ -51,8 +51,8 @@ function ProjectSummary({ title, summary, phases, stack }:ProjectData) {
 
 function ProjectSummaries({projectSummaries}:ProjectSummariesProps) {
   return (
-    projectSummaries.map((projectSummary) => {
-      return <ProjectSummary title={projectSummary.title} summary={projectSummary.summary} phases={projectSummary.phases} stack={projectSummary.stack}/>
+    projectSummaries.map((projectSummary, index) => {
+      return <ProjectSummary key={index} title={projectSummary.title} summary={projectSummary.summary} phases={projectSummary.phases} stack={projectSummary.stack}/>
     })
   );
 }
@@ -88,7 +88,6 @@ export default function ProjectPage() {
   return (
     <main>
       <header className="page-header">Projects</header>
-
       <ProjectSummaries projectSummaries={projectSummaries}/>
     </main>
   );
