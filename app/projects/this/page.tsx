@@ -20,7 +20,7 @@ function JournalEntry({ title, date, entry }: JournalEntryProps) {
     <div className="border rounded-lg mx-5 mb-5 border-[rgb(203,213,225)] overflow-hidden">
       <div className="cursor-pointer flex items-center bg-[rgba(201,234,255,0.7)] hover:bg-[rgb(201,234,255)] transition-colors duration-200 ease-linear" onClick={() => setIsOpen(!isOpen)}>
         <p className="grow text-lg font-bold mx-5 my-4">{title}</p>
-        <button className="bg-transparent height-7 mr-4 cursor-pointer">{isOpen ? "▲ Hide" : "▼ Read"}</button>
+        <p className="bg-transparent height-7 mr-4 cursor-pointer">{isOpen ? "▲ Hide" : "▼ Read"}</p>
       </div>
       {isOpen && (
         <div className="py-2.5 px-5 bg-[rgba(201,234,255,0.3)]">
