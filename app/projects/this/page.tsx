@@ -1,13 +1,7 @@
 'use client'
 
 import React, { useState } from 'react';
-//import '../main-styles.css';
-
-export interface JournalEntryData {
-  title: string;
-  date: string;
-  entry: string;
-}
+import { JOURNAL_ENTRIES, JournalEntryData } from '@/lib/journalEntries'
 
 interface JournalEntryProps {
   title: string;
@@ -51,7 +45,7 @@ function JournalEntries( {journalEntries}: JournalEntriesProps ) {
 }
 
 export default function ProjectSummaryPage() {
-  const [journalEntries, setJournalEntries] = useState<JournalEntryData[]>([
+  /*const [journalEntries, setJournalEntries] = useState<JournalEntryData[]>([
     {
       title: 'First Log - The Beginning',
       date: '2026/07/24',
@@ -72,7 +66,8 @@ export default function ProjectSummaryPage() {
       date: '2026/08/03 (night)',
       entry: 'Big refactor today with shifting the whole repo onto Next.js framework. Still not finished with everything, but a more clear roadmap is ahead. To be honest, there\'s a lot of changes that need to be made to my code still. This might also become more like a journal with more frequent entries and goals for the near-future.\n\nHere\'s some goals for tomorrow and maybe the day after:\n1. Convert projects page css to tailwind css\n2. Change projects page to have project summaries with project logs in subpages (and format both pages)\n3. Create containers for project summaries\n4. Create a navbar connecting pages that sits at the top of all pages on the website\n5. Start learning how to import data from excel or google sheets (for gym data) as well as displaying it and choosing what to display\n6. See if I can turn these journal entries into JSON or if there are any better methods of storing it (hopefully a r/w solution so I can create a journal entry submitter too)\n7. See if I can connect github to project logs page to display commits (and look at how I may present this data)'
     }
-  ]);
+  ]);*/
+  const [journalEntries, setJournalEntries] = useState<JournalEntryData[]>(JOURNAL_ENTRIES);
 
   return (
     <div className="bg-[rgb(240,246,250)] flex-1 px-[10vw] py-[10vh]">
