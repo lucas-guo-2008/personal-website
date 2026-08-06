@@ -22,7 +22,7 @@ export type Exercises = {
 
 export type SetData = {
   reps: number;
-  weights: number;
+  weight: number;
 }
 
 export async function getGymData(): Promise<WorkoutRow[]> {
@@ -63,8 +63,37 @@ export async function getGymData(): Promise<WorkoutRow[]> {
   }
 }
 
-export function processGymData(rows: WorkoutRow[]) {
-  return rows.map((row, index) => {
+export function processGymData(rows: WorkoutRow[]):GymLog[] {
+  const dateMap = new Map<string, {
+    category: string;
+    exerciseMap: Map<string, Exercises>;
+  }>();
 
-  })
+  for (const row of rows) {
+    if (!dateMap.has(row.date)) {
+      dateMap.set(row.date, {
+        category: row.category,
+        exerciseMap: new Map()
+      });
+    }
+    const exerciseMap = dateMap.get(row.date)!.exerciseMap;
+
+    if (!exerciseMap.has(row.exercise_name)) {
+      exerciseMap.set(row.exercise_name, {
+        exercise_name: row.exercise_name,
+        sets: []
+      });
+    }
+
+    exerciseMap.get(row.exercise_name)!.sets.push({
+      reps: row.reps, 
+      weight: row.weight
+    });
+  }
+
+  return Array.from(dateMap.entries()).map(([date, data]):GymLog => ({
+    date,
+    category: data.category,
+    exercises: Array.from(data.exerciseMap.values()),
+  }));
 }

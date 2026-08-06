@@ -1,7 +1,10 @@
-import { getGymData } from '@/lib/googleSheets';
+import { getGymData, processGymData } from '@/lib/googleSheets';
 
 export default async function GymPage() {
   const data = await getGymData();
+  const processedData = processGymData(data);
   console.log(data);
-  return (<p>{data[0].date}</p>)
+  console.log(processedData);
+
+  return <p>{data[0].date}</p>
 }
