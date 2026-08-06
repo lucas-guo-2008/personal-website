@@ -1,12 +1,28 @@
 import { google } from 'googleapis';
 
-export type WorkoutRow = {
+type WorkoutRow = {
   date: string;
   category: string;
   exercise_name: string;
   set_number: number;
   reps: number;
   weight: number;
+}
+
+export type GymLog = {
+  date: string;
+  category: string;
+  exercises: Exercises[];
+}
+
+export type Exercises = {
+  exercise_name: string;
+  sets: SetData[];
+}
+
+export type SetData = {
+  reps: number;
+  weights: number;
 }
 
 export async function getGymData(): Promise<WorkoutRow[]> {
@@ -42,7 +58,13 @@ export async function getGymData(): Promise<WorkoutRow[]> {
     }));
   }
   catch (error) {
-    console.log("Error error error couldnt fetch sheets data", error);
+    console.log("Error error error couldnt fetch sheets data hehehehaw", error);
     return [];
   }
+}
+
+export function processGymData(rows: WorkoutRow[]) {
+  return rows.map((row, index) => {
+
+  })
 }
