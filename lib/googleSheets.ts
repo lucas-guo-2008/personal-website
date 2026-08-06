@@ -25,6 +25,27 @@ export type SetData = {
   weight: number;
 }
 
+/* 
+  Example of a GymLog object
+  date, category, 
+  [
+    {  exercise_name,
+      [
+        {reps, weight},
+        {reps, weight},
+        {reps, weight}
+      ]  
+    },
+    {  exercise_name,
+      [
+        {reps, weight},
+        {reps, weight},
+        {reps, weight}
+      ]  
+    },
+  ]
+*/
+
 export async function getGymData(): Promise<WorkoutRow[]> {
   try {
     const auth = new google.auth.GoogleAuth({
