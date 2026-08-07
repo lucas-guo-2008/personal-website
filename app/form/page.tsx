@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, ChangeEvent, SubmitEvent } from 'react';
+import { useState, useEffect, ChangeEvent, SubmitEvent } from 'react';
 
 interface FormData {
   title: string;
@@ -15,6 +15,8 @@ export default function JournalFormPage() {
     content: '',
   });
 
+  const [ entries, setEntries ] = useState<FormData[]>([]);
+
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setFormData((prev) => ({
       ...prev,
@@ -25,23 +27,45 @@ export default function JournalFormPage() {
   const handleSubmit = (e: SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log('Submitted Data:', {formData});
+
+    const updatedEntries = [...entries, formData];
+    setEntries(updatedEntries);
+    localStorage.setItem('entries', JSON.stringify(updatedEntries));
+
     setFormData({title: '', date: '', content: ''});
   }
 
+  useEffect(() => {
+    const saved = localStorage.getItem('entries');
+    console.log(saved);
+    if (saved) setEntries(JSON.parse(saved));
+  }, []);
+
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="block">
-        <label>Title</label>
-        <input name='title' value={formData.title} onChange={handleChange}></input>
+    <div>
+      <form onSubmit={handleSubmit}>
+        <div className="block">
+          <label>Title</label>
+          <input name='title' value={formData.title} onChange={handleChange}></input>
+        </div>
+        <div className="block">
+          <label>Date</label>
+          <input name='date' value={formData.date} onChange={handleChange}></input>
+        </div>
+        <div className="block">
+          <input></input>
+        </div>
+        <button type="submit" className="cursor-pointer">Submit</button>
+      </form>
+
+      <div>
+        {entries.map((entry, index) => (
+          <div key={index}>
+            <div>{entry.title}</div>
+            <div>{entry.date} {entry.content}</div>
+          </div>
+        ))}
       </div>
-      <div className="block">
-        <label>Date</label>
-        <input name='date' value={formData.date} onChange={handleChange}></input>
-      </div>
-      <div className="block">
-        <input></input>
-      </div>
-      <button type="submit" className="cursor-pointer">Submit</button>
-    </form>
+    </div>
   );
 }
