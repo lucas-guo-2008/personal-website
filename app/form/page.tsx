@@ -35,6 +35,12 @@ export default function JournalFormPage() {
     setFormData({title: '', date: '', content: ''});
   }
 
+  const handleDelete = (id: string) => {
+    const updatedEntries = entries.filter((entry) => entry.title !== id);
+    setEntries(updatedEntries);
+    localStorage.setItem('entries', JSON.stringify(updatedEntries));
+  }
+
   useEffect(() => {
     const saved = localStorage.getItem('entries');
     console.log(saved);
@@ -59,10 +65,12 @@ export default function JournalFormPage() {
       </form>
 
       <div>
-        {entries.map((entry, index) => (
-          <div key={index}>
+        {entries.map((entry) => (
+          <div key={entry.title}>
             <div>{entry.title}</div>
-            <div>{entry.date} {entry.content}</div>
+            <div>{entry.date}</div>
+            <div>{entry.content}</div>
+            <button onClick={() => handleDelete(entry.title)}>Delete</button>
           </div>
         ))}
       </div>
