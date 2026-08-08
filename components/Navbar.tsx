@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Navbar() {
   return (
-    <nav className="sticky top-0 grid grid-cols-3 items-center border-b py-3 px-8 text-lg font-bold">
+    <nav className="sticky top-0 grid grid-cols-3 items-center border-b py-3 px-8 text-lg font-bold z-50 bg-white">
       <div>
         <Link className="hover:underline underline-offset-4 decoration-2" href="/">HOME</Link>
       </div>
