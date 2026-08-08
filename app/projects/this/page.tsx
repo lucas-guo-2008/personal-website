@@ -21,7 +21,7 @@ function JournalEntry({ title, date, entry, isOpen, onToggle }: JournalEntryProp
   return (
     <div className="border rounded-lg mx-5 mb-5 border-[rgb(203,213,225)] overflow-hidden">
       <div className="cursor-pointer flex items-center bg-[rgba(201,234,255,0.7)] hover:bg-[rgb(201,234,255)] transition-colors duration-200 ease-linear" onClick={() => onToggle()}>
-        <p className="grow text-lg font-bold mx-5 my-4">{title}</p>
+        <p className="grow text-lg font-bold mx-5 my-3">{title}</p>
         <p className="bg-transparent height-7 mr-4 cursor-pointer">{isOpen ? "▲ Hide" : "▼ Read"}</p>
       </div>
       {isOpen && (
@@ -66,8 +66,11 @@ export default function ProjectSummaryPage() {
       </h1>
 
       <div className="mb-[10vh] border rounded-lg px-5 pb-4">
-        <h3 className="font-bold text-xl mb-7 mt-5">Project Logs</h3>
-        <button onClick={() => setIsOpen(new Map(journalEntries.map((entry) => {return [entry.title, true];})))}>Open All</button>
+        <div className="flex flex-row">
+          <h3 className="flex-1 font-bold text-xl mb-7 mt-5">Project Logs</h3>
+          <button className="self-center border cursor-pointer p-1 rounded-md" onClick={() => setIsOpen(new Map(journalEntries.map((entry) => {return [entry.title, true];})))}>Open All</button>
+          <button className="self-center border cursor-pointer p-1 rounded-md mx-5" onClick={() => setIsOpen(new Map(journalEntries.map((entry) => {return [entry.title, false];})))}>Close All</button>
+        </div>
         <JournalEntries journalEntries={journalEntries} journalOpen={isOpen} onToggle={handleToggle}/>
       </div>
     </div>
