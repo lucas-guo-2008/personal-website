@@ -21,6 +21,18 @@ export const projectSummaries = [
         'Framework: Next.js',
         'Hosting: Vercel',
         'Data Sources: Static JSON files or Google Sheets imports initially; CSV/JSON manual exports for Garmin data.'
-      ]
+      ],
+      page: '/projects/this'
+    },
+    {
+      title: 'Quotes Website',
+      summary: 'A decoupled, full-stack application for managing and displaying quotes. Features a Next.js frontend communicating via REST API with a Python FastAPI backend and SQLite database. The goal is to build a simple backend-focused project to learn about backend development.',
+      phases: [],
+      stack: [
+        'Frontend: Next.js, React, Tailwind CSS (Hosted on Vercel)',
+        'Backend: Python, FastAPI, SQLite, Pydantic (Hosted on Railway/Render)',
+        'Protocol: RESTful API / JSON'
+      ],
+      page: '/projects/quotes'
     },
   ];

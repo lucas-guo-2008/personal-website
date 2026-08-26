@@ -14,37 +14,46 @@ interface ProjectData {
   summary: string;
   phases: Phase[];
   stack: string[];
+  page: string;
 }
 
 interface ProjectSummariesProps {
   projectSummaries: ProjectData[];
 }
 
-function ProjectSummary({ title, summary, phases, stack }:ProjectData) {
+function ProjectSummary({ title, summary, phases, stack, page }:ProjectData) {
   return (
-    <div className="border rounded-lg px-5 pb-4">
+    <div className="border rounded-lg px-5 pb-4 mb-8">
       <h2 className="w-fit text-3xl font-bold my-5">
-        <Link href="/projects/this" className="hover:underline underline-offset-8">Project Summary: {title}</Link>
+        <Link href={`${page}`} className="hover:underline underline-offset-8">Project Summary: {title}</Link>
       </h2>
 
       <h3 className="font-bold text-xl mt-5 mb-2.5">Goal</h3>
       <p>{summary}</p>
 
-      <h3 className="font-bold text-xl mt-5 mb-2.5">Approach & Roadmap</h3>
-      <ul className="list-disc list-outside pl-10 space-y-2">{phases.map((phase, index) => {
-        return (
-          <li key={index}>Phase {index+1}{(phase.comment) ? ` (${phase.comment})`: ''}: {phase.description}</li>
-        );
-      })}
-      </ul>
+      {phases[0]?.comment && (
+        <div>
+          <h3 className="font-bold text-xl mt-5 mb-2.5">Approach & Roadmap</h3>
+          <ul className="list-disc list-outside pl-10 space-y-2">{phases.map((phase, index) => {
+            return (
+              <li key={index}>Phase {index+1}{(phase.comment) ? ` (${phase.comment})`: ''}: {phase.description}</li>
+            );
+          })}
+          </ul>
+        </div>
+      )}
 
-      <h3 className="font-bold text-xl mt-5 mb-2.5">Tech Stack & Implementation</h3>
-      <ul className="list-disc list-outside pl-10 space-y-2">{stack.map((str, index) => {
-        return (
-          <li key={index} className="mb-2">{str}</li>
-        );
-      })}
-      </ul>
+      {stack[0] && (
+        <div>
+          <h3 className="font-bold text-xl mt-5 mb-2.5">Tech Stack & Implementation</h3>
+          <ul className="list-disc list-outside pl-10 space-y-2">{stack.map((str, index) => {
+            return (
+              <li key={index} className="mb-2">{str}</li>
+            );
+          })}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }
@@ -52,7 +61,7 @@ function ProjectSummary({ title, summary, phases, stack }:ProjectData) {
 function ProjectSummaries({projectSummaries}:ProjectSummariesProps) {
   return (
     projectSummaries.map((projectSummary, index) => {
-      return <ProjectSummary key={index} title={projectSummary.title} summary={projectSummary.summary} phases={projectSummary.phases} stack={projectSummary.stack}/>
+      return <ProjectSummary key={index} title={projectSummary.title} summary={projectSummary.summary} phases={projectSummary.phases} stack={projectSummary.stack} page={projectSummary.page}/>
     })
   );
 }
