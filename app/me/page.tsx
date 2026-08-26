@@ -20,7 +20,7 @@ export default function AboutPage() {
           <SocialLink href="https://www.linkedin.com/in/lucas-guo/">LinkedIn</SocialLink>
           <SocialLink href="https://github.com/lucas-guo-2008">Github</SocialLink>
           <SocialLink href="https://www.strava.com/athletes/145385726">Strava</SocialLink>
-          <SocialLink href="mailto:lucas.lu.guo@gmail.com">lucas.lu.guo [ at ] gmail.com</SocialLink>
+          <a href="mailto:lucas.lu.guo@gmail.com" className="text-xs hover:underline underline-offset-4">lucas.lu.guo [ at ] gmail.com</a>
         </footer>
       </div>
     </div>
